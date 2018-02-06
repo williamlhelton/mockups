@@ -1,0 +1,223 @@
+/* Global */
+
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+
+header{    
+    position: fixed;
+    height:50px;
+    width: 100%;
+    background-color:#fff;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Header Buttons and Links */
+
+header button{
+    text-transform: uppercase;
+    padding: 13px 20px;
+    font-size: 14px;
+    padding: 0 20px 0 20px;
+    border: 0;
+    height: 50px;
+    background: #fff;
+}
+
+header nav button{
+    float: left;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+header button.right-button{
+    float: right;
+}
+
+header button:hover{
+    background-color:#ddd;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header a:visited{
+    color:rgb(80, 80, 253);
+}
+
+/* Header Images */
+
+header img#mainlogo{
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%,0);
+    height: 50px;
+    vertical-align: top;
+}
+
+header img#partnericon{
+    padding-right:3px;
+}
+
+/* Media Queries for Header */
+@media(max-width:991px){
+    header button.right-button{
+        display: none;
+    }
+
+    header img#mainlogo{
+        position: relative;
+        left:0;
+        margin-right:20px;
+        transform: none;
+        float: right;
+        transform: 0;
+    }
+}
+
+@media(max-width:768px){
+    header nav{
+        display: none;
+    }
+
+    header img#mainlogo{
+        position: relative;
+        left:0;
+        padding-left:5px;
+        transform: none;
+        float: left;
+        transform: 0;
+    }
+}
+
+/* Main Grid */
+#main-grid{
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 175px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.grid-pane{
+    border: 2px solid red;
+}
+
+/* What We Do */
+#what-we-do{
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background:url('img/whatwedo.jpg') no-repeat center;
+    background-size: cover;
+    color: #ddd;
+    transition-property: opacity;
+    transition-duration: .7s;
+    transition-timing-function: ease;
+}
+
+#what-we-do:hover{
+    opacity:0.85;
+}
+
+#what-we-do p{
+    position: absolute;
+    font-size: 20px;
+    left: 20px;
+    bottom: 10px;
+}
+
+/* Brag Slider */
+#brag-slide{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    background:rgb(56, 102, 255);
+    color:#fff;
+}
+
+#our-team{
+    grid-column: 1/2;
+    grid-row: 4/6;
+    background:#ddd;
+}
+
+#marketplace{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    background:#444;
+}
+
+#partner-slide{
+    grid-column: 2/3;
+    grid-row: 3/5;
+    background:#ddd;
+}
+
+#contacts{
+    grid-column: 2/3;
+    grid-row: 5/6;
+    background:#444;
+}
+
+#support{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background:#ddd;
+}
+
+#join-team{
+    grid-column: 3/4;
+    grid-row: 2/4;
+    background:#444;
+}
+
+#integration{
+    grid-column: 3/4;
+    grid-row: 4/6;
+    background:#ddd;
+}
+
+/* Footer */
+footer{
+    background-color:#333;
+    color:#fff;
+    padding-top:10px;    
+}
+
+footer img{
+    padding-left: 10px;
+    height: 50px;
+}
+
+footer #right-footer{
+    float: right;
+    text-align: right;
+    padding-right: 15px;
+    padding-top:6px;
+    font-size: 12px;
+}
+
+footer li{
+    list-style: none;
+    display: inline;
+}
+
+footer li + li:before{
+    content: " | ";
+    color:#999;
+    padding: 0 3px;
+}
+
+footer p{
+    color:#999;
+}
