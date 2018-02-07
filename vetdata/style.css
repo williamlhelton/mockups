@@ -7,6 +7,7 @@
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#333;
 }
 
 /* Header */
@@ -31,10 +32,12 @@ header button{
     border: 0;
     height: 50px;
     background: #fff;
+    cursor: pointer;
 }
 
 header nav button{
     float: left;
+    color:rgb(69, 69, 189);
 }
 
 header button.right-button{
@@ -47,10 +50,6 @@ header button:hover{
 
 header a{
     text-decoration: none;
-}
-
-header a:visited{
-    color:rgb(80, 80, 253);
 }
 
 /* Header Images */
@@ -100,13 +99,28 @@ header img#partnericon{
 
 /* Main Grid */
 #main-grid{
+    position: relative;
     display: grid;
     padding-top: 50px;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        'what-we-do marketplace support'
+        'what-we-do marketplace join-team'
+        'brag-slider partner-slider join-team'
+        'our-team partner-slider integration'
+        'our-team contacts integration';
     grid-auto-rows: 175px;
     justify-items: stretch;
     align-items: stretch;
     color: #fff;
+    animation-name: content;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes content{
+    0% {left: -2000px}
+    100% {left: 0}
 }
 
 .grid-pane{
@@ -125,8 +139,7 @@ header img#partnericon{
 /* What We Do */
 #what-we-do{
     position: relative;
-    grid-column: 1/2;
-    grid-row: 1/3;
+    grid-area: what-we-do;
     background:url('img/whatwedo.jpg') no-repeat center;
     background-size: cover;    
 }
@@ -140,8 +153,7 @@ header img#partnericon{
 
 /* Brag Slider */
 #brag-slide{
-    grid-column: 1/2;
-    grid-row: 3/4;
+    grid-area: brag-slider;
     background:rgb(56, 102, 255);
     color:#fff;
 }
@@ -149,8 +161,7 @@ header img#partnericon{
 /* Our Team */
 #our-team{
     position: relative;
-    grid-column: 1/2;
-    grid-row: 4/6;
+    grid-area:our-team;
     background:url('/img/dogsled.png') no-repeat center;
     background-size: cover;    
 }
@@ -165,48 +176,78 @@ header img#partnericon{
 /* Marketplace */
 #marketplace{
     position: relative;
-    grid-column: 2/3;
-    grid-row: 1/3;
-    background:url('/img/cogs.png') no-repeat center;
+    grid-area: marketplace;
+    background:url('/img/gears.png') no-repeat center;
     background-size: cover;   
+}
+
+#marketplace img{
+    width: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Partner Slider */
 #partner-slide{
-    grid-column: 2/3;
-    grid-row: 3/5;
+    grid-area: partner-slider;
     background:#ddd;
 }
 
 /* Contacts */
 #contacts{
-    grid-column: 2/3;
-    grid-row: 5/6;
-    background:#71179E;
+    position: relative;
+    grid-area: contacts;
+    background:#71179E;    
+}
+
+#contacts ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+}
+
+#contacts li{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+#contacts img{
+    height: 45px;
 }
 
 /* Support */
 #support{
     position: relative;
-    grid-column: 3/4;
-    grid-row: 1/2;
-    background:url('/img/support.png') no-repeat center;
-    background-size: cover;   
+    grid-area: support;
+    background:#27726D;
+}
+
+#support img{
+    height: 75%;
+    position: relative;
+    top: 50%;
+    left: 20%;
+    padding-left: 30px;
+    transform: translate(-20%, -50%);
 }
 
 #support p{
-    position: relative;
-    text-align: right;
+    position: absolute;
     font-size: 26px;
     top: 40%;
-    margin-right: 35px;
+    right: 35px;
 }
+
+
 
 /* Join Team */
 #join-team{
     position: relative;
-    grid-column: 3/4;
-    grid-row: 2/4;
+    grid-area: join-team;
     background:url('/img/employees.png') no-repeat center;
     background-size: cover;   
 }
@@ -247,10 +288,26 @@ header img#partnericon{
 
 /* Integration */
 #integration{
-    grid-column: 3/4;
-    grid-row: 4/6;
-    background:url('/img/fakelabs.png') no-repeat center;
-    background-size: cover;   
+    position: relative;
+    grid-area: integration;
+    background:#1A2356;
+    text-align: center;
+    padding: 5%;
+}
+
+#integration img{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    max-width: 95%;
+    
+}
+
+#integration p{
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 95%;
 }
 
 /* Footer */
@@ -286,4 +343,26 @@ footer li + li:before{
 
 footer p{
     color:#999;
+}
+
+@media(max-width:991px){
+    #main-grid{
+        grid-template-areas: 
+            'what-we-do' 
+            'what-we-do' 
+            'brag-slider' 
+            'our-team' 
+            'our-team' 
+            'marketplace' 
+            'marketplace' 
+            'partner-slider' 
+            'partner-slider' 
+            'contacts' 
+            'support' 
+            'join-team' 
+            'join-team' 
+            'integration'
+            'integration';
+        grid-template-columns: 100%;
+    }
 }
